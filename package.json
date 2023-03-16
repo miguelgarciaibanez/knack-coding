@@ -1,0 +1,36 @@
+{
+    "name": "node-coding-exercise",
+    "version": "1.0.0",
+    "description": "Node coding exercise for Knack",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "ts-node-dev --ignore-watch node_modules ./src/app/index.ts",
+        "test": "jest --forceExit --maxWorkers=1 --detectOpenHandles",
+        "test:coverage": "jest --coverage --forceExit --maxWorkers=1 --detectOpenHandles",
+        "build": "tsc -p tsconfig.prod.json && npm run copy-files",
+        "start": "npm run build && node lib/app/index.ts",
+        "copy-files": "copyfiles -u 1 src/**/*.yaml src/**/**/.yaml lib/",
+        "lint": "eslint . --ext .ts -f checkstyle -o coverage/eslint.xml",
+        "lint:fix": "eslint . --ext -ts --fix"
+    },
+    "author": "Miguel Garcia Ibañez",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "node-dependency-injection": "^2.7.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.4.4",
+        "@types/node": "^18.15.3",
+        "@typescript-eslint/eslint-plugin": "^5.55.0",
+        "@typescript-eslint/parser": "^5.55.0",
+        "copyfiles": "^2.4.1",
+        "eslint": "^8.36.0",
+        "jest": "^29.5.0",
+        "ts-jest": "^29.0.5",
+        "ts-node": "^10.9.1",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^4.9.5"
+    }
+}

@@ -1,0 +1,5 @@
+services:
+  Controllers.NodeAppController:
+    class: ../../controllers/NodeAppController
+  Controllers.NodeAppControllerJS:
+    class: ../../controllers/NodeAppControllerJS
