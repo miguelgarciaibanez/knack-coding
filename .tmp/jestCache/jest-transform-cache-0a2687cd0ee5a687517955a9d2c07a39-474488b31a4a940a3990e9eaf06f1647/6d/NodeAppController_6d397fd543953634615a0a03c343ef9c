@@ -1,0 +1,25 @@
+3197e756adf88b39a5a323c9cddbc90e
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const dependency_injection_1 = __importDefault(require("../dependency-injection"));
+class NodeAppController {
+    constructor() {
+        this.service = dependency_injection_1.default.get("service.NodeAppService");
+    }
+    async cleanNodeApp(nodeApp) {
+        try {
+            const origNodeApp = await this.service.readNodeAppFile(nodeApp);
+            const appCleant = await this.service.cleanNodeApp(origNodeApp);
+            await this.service.writeNodeAppFile(appCleant);
+            return true;
+        }
+        catch (error) {
+            //console.error(`ERROR cleaning nodeApp:${(error as any).message}.`);
+            return false;
+        }
+    }
+}
+exports.default = NodeAppController;

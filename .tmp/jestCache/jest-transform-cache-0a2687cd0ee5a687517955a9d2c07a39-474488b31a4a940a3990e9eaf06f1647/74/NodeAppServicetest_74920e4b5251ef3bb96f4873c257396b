@@ -1,0 +1,40 @@
+006e90b99ff7ae1bb4f6e2baffb5b052
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+jest.mock('fs', () => ({
+    promises: {
+        writeFile: jest.fn(),
+        readFile: jest.fn()
+    },
+}));
+//import container from "../../../../../../app/dependency-injection";
+const NodeAppService_1 = __importDefault(require("../NodeAppService"));
+describe('Service Test', () => {
+    let nodeAppService;
+    beforeAll(() => {
+        nodeAppService = new NodeAppService_1.default;
+    });
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+    it('Should return an object for readfile', async () => {
+        const res = await nodeAppService.readNodeAppFile("mock_application.json");
+        expect(res._id).toBe("61e8666b010a37023e3d99a3");
+    });
+    it('Should return a unique object from simple object', () => {
+        const duplicatedObjectArray = [{ key: "1", value: "value1" }, { key: "1", value: "value2" }];
+        const res = nodeAppService.cleanDuplicageFields(duplicatedObjectArray, "key");
+        expect(res[0].value).toBe("value1");
+    });
+    it('Should return unique items and objects for nested object', () => {
+        const duplicatedObjectArray = [{ key: "1", value: "value1" }, { key: "1", value: "value2" }];
+        const nestedArray = [{
+                parentID: "1", value: "1", objects: duplicatedObjectArray
+            }, { parentID: "1", value: "2", objects: duplicatedObjectArray }];
+        const res = nodeAppService.cleanDuplicateObjects(nestedArray, "objects", "parentID", "key");
+        expect(res[0].value).toBe("value1");
+    });
+});

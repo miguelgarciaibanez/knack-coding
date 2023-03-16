@@ -1,0 +1,43 @@
+049d4a48dfac49c3e1a2df33b90f7d52
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const dependency_injection_1 = __importDefault(require("../../dependency-injection"));
+describe("Controller TEST", () => {
+    let nodeAppService;
+    let nodeAppController;
+    beforeAll(() => {
+        nodeAppService = dependency_injection_1.default.get("service.NodeAppService");
+        nodeAppController = dependency_injection_1.default.get("Controllers.NodeAppController");
+    });
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+    it('Should return true', async () => {
+        jest.spyOn(nodeAppService, "readNodeAppFile").mockResolvedValueOnce({
+            _id: "kmalñkdj"
+        });
+        jest.spyOn(nodeAppService, "cleanNodeApp").mockResolvedValueOnce({
+            _id: "kmalñkdj"
+        });
+        jest.spyOn(nodeAppService, "writeNodeAppFile").mockResolvedValueOnce({
+            _id: "kmalñkdj"
+        });
+        const result = await nodeAppController.cleanNodeApp("file");
+        expect(result).toBe(true);
+    });
+    it('Should return error', async () => {
+        try {
+            jest.spyOn(nodeAppService, "readNodeAppFile").mockImplementationOnce(() => {
+                return Promise.reject("readingNodeappfile");
+            });
+            await nodeAppController.cleanNodeApp("file");
+        }
+        catch (error) {
+            console.log(error.message);
+            expect(error.message).toContain("readingNodeappfile");
+        }
+    });
+});

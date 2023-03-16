@@ -3,14 +3,14 @@
     "version": "1.0.0",
     "description": "Node coding exercise for Knack",
     "main": "index.js",
-    "type": "module",
     "scripts": {
         "dev": "ts-node-dev --ignore-watch node_modules ./src/app/index.ts",
         "test": "jest --forceExit --maxWorkers=1 --detectOpenHandles",
         "test:coverage": "jest --coverage --forceExit --maxWorkers=1 --detectOpenHandles",
+        "test:clean": "jest --clearCache",
         "build": "tsc -p tsconfig.prod.json && npm run copy-files",
-        "start": "npm run build && node lib/app/index.ts",
-        "copy-files": "copyfiles -u 1 src/**/*.yaml src/**/**/.yaml lib/",
+        "start": "npm run build && node lib/app/index.js",
+        "copy-files": "copyfiles -u 1 src/**/*.yaml src/**/**/.yaml src/**/*.json src/**/**/.json lib/",
         "lint": "eslint . --ext .ts -f checkstyle -o coverage/eslint.xml",
         "lint:fix": "eslint . --ext -ts --fix"
     },

@@ -1,0 +1,71 @@
+01c7fde9fd878cec466c437e6fcb6ad9
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require('fs/promises');
+class NodeAppService {
+    async readNodeAppFile(appFile) {
+        try {
+            const fileUri = `${__dirname}/../../../resources/${appFile}`;
+            console.log("llega hasta aquí");
+            const json = await fs.readFile(fileUri);
+            const nodeAppOrig = JSON.parse(json);
+            return nodeAppOrig;
+        }
+        catch (error) {
+            console.log("throwing error", error.message);
+            throw new Error(`ERROR reading file:${appFile}`);
+        }
+    }
+    async writeNodeAppFile(nodeApp) {
+        try {
+            await fs.writeFile(`${__dirname}/../../../resources/application-clean.json`, JSON.stringify(nodeApp), 'utf8');
+            return true;
+        }
+        catch (error) {
+            throw new Error(`ERROR writing file`);
+        }
+    }
+    async cleanNodeApp(nodeApp) {
+        try {
+            let newversions = [];
+            let nodeAppNew = JSON.parse(JSON.stringify(nodeApp));
+            nodeApp.versions.map((version) => {
+                let newVersion = JSON.parse(JSON.stringify(version));
+                let cleanObjects = this.cleanDuplicateObjects(version.objects, "fields", "identifier");
+                let cleanScenes = this.cleanDuplicateObjects(version.scenes, "views", "key");
+                newVersion.objects = cleanObjects;
+                newVersion.scenes = cleanScenes;
+                newversions.push(newVersion);
+            });
+            nodeAppNew.versions = newversions;
+            return nodeAppNew;
+        }
+        catch (error) {
+            throw new Error(`ERROR cleaning nodeApp:${error.message}.`);
+        }
+    }
+    cleanDuplicateObjects(objectArray, nestedAttribute, objectKey) {
+        try {
+            let uniqueObjects = Array.from(new Set(objectArray.map(a => a[objectKey])))
+                .map(id => {
+                return objectArray.find(a => a[objectKey] === id);
+            });
+            uniqueObjects.map(object => {
+                const newFields = this.cleanDuplicageFields(object[nestedAttribute], "key");
+                object[nestedAttribute] = newFields;
+            });
+            return uniqueObjects;
+        }
+        catch (error) {
+            throw new Error(`ERROR cleanDuplicates:${error.message}.`);
+        }
+    }
+    cleanDuplicageFields(fieldArray, objectKey) {
+        let uniqueFields = Array.from(new Set(fieldArray.map(a => a[objectKey])))
+            .map(id => {
+            return fieldArray.find(a => a[objectKey] === id);
+        });
+        return uniqueFields;
+    }
+}
+exports.default = NodeAppService;

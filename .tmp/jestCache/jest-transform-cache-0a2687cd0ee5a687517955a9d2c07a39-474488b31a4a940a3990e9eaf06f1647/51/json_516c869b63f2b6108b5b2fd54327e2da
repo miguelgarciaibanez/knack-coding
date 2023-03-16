@@ -1,0 +1,14 @@
+9c2ea53cc83f1cace9a80d75bf505469
+// Standard YAML's JSON schema.
+// http://www.yaml.org/spec/1.2/spec.html#id2803231
+//
+// NOTE: JS-YAML does not support schema-specific tag resolution restrictions.
+// So, this schema is not such strict as defined in the YAML specification.
+// It allows numbers in binary notaion, use `Null` and `NULL` as `null`, etc.
+
+'use strict';
+
+module.exports = require('./failsafe').extend({
+  implicit: [require('../type/null'), require('../type/bool'), require('../type/int'), require('../type/float')]
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJtb2R1bGUiLCJleHBvcnRzIiwicmVxdWlyZSIsImV4dGVuZCIsImltcGxpY2l0Il0sInNvdXJjZXMiOlsianNvbi5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBTdGFuZGFyZCBZQU1MJ3MgSlNPTiBzY2hlbWEuXG4vLyBodHRwOi8vd3d3LnlhbWwub3JnL3NwZWMvMS4yL3NwZWMuaHRtbCNpZDI4MDMyMzFcbi8vXG4vLyBOT1RFOiBKUy1ZQU1MIGRvZXMgbm90IHN1cHBvcnQgc2NoZW1hLXNwZWNpZmljIHRhZyByZXNvbHV0aW9uIHJlc3RyaWN0aW9ucy5cbi8vIFNvLCB0aGlzIHNjaGVtYSBpcyBub3Qgc3VjaCBzdHJpY3QgYXMgZGVmaW5lZCBpbiB0aGUgWUFNTCBzcGVjaWZpY2F0aW9uLlxuLy8gSXQgYWxsb3dzIG51bWJlcnMgaW4gYmluYXJ5IG5vdGFpb24sIHVzZSBgTnVsbGAgYW5kIGBOVUxMYCBhcyBgbnVsbGAsIGV0Yy5cblxuXG4ndXNlIHN0cmljdCc7XG5cblxubW9kdWxlLmV4cG9ydHMgPSByZXF1aXJlKCcuL2ZhaWxzYWZlJykuZXh0ZW5kKHtcbiAgaW1wbGljaXQ6IFtcbiAgICByZXF1aXJlKCcuLi90eXBlL251bGwnKSxcbiAgICByZXF1aXJlKCcuLi90eXBlL2Jvb2wnKSxcbiAgICByZXF1aXJlKCcuLi90eXBlL2ludCcpLFxuICAgIHJlcXVpcmUoJy4uL3R5cGUvZmxvYXQnKVxuICBdXG59KTtcbiJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUdBLFlBQVk7O0FBR1pBLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHQyxPQUFPLENBQUMsWUFBWSxDQUFDLENBQUNDLE1BQU0sQ0FBQztFQUM1Q0MsUUFBUSxFQUFFLENBQ1JGLE9BQU8sQ0FBQyxjQUFjLENBQUMsRUFDdkJBLE9BQU8sQ0FBQyxjQUFjLENBQUMsRUFDdkJBLE9BQU8sQ0FBQyxhQUFhLENBQUMsRUFDdEJBLE9BQU8sQ0FBQyxlQUFlLENBQUM7QUFFNUIsQ0FBQyxDQUFDIn0=

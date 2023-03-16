@@ -1,0 +1,29 @@
+67342a294d28f837523cbc54a77efcf6
+"use strict";
+/*
+import container from "../../../../../../app/dependency-injection";
+const fs = require('fs/promises');
+
+describe('Service Test',() => {
+    let nodeAppService: any;
+
+    beforeAll(()=>{
+        nodeAppService = container.get("service.NodeAppService")
+    });
+
+    afterEach(()=>{
+        jest.clearAllMocks();
+    });
+
+    it('Should return an object for readfile', async ()=>{
+        jest.spyOn(fs,"readFile").mockImplementationOnce(()=>{
+            console.log("reading file mocked");
+            return Promise.resolve();
+        });
+
+        const res = await nodeAppService.readNodeAppFile("file");
+        console.log(res);
+        expect(res._id).toBe("identifier");
+    })
+})
+*/ 

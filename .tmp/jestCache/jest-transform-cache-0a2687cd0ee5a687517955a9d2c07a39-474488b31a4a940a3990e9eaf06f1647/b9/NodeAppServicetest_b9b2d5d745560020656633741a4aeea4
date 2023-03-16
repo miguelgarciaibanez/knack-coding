@@ -1,0 +1,40 @@
+98ca42e1c50c1bfbf2490ffd367eac1a
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+//const fs = require('fs/promises');
+jest.mock('fs');
+const dependency_injection_1 = __importDefault(require("../../../../../../app/dependency-injection"));
+const fake_fs = require('fs');
+// mockreturn value
+fake_fs.mockReturnValue(() => {
+    readFile: () => {
+        return {
+            foo: 'bar'
+        };
+    };
+    // and so on with other methods
+});
+describe('Service Test', () => {
+    let nodeAppService;
+    beforeAll(() => {
+        nodeAppService = dependency_injection_1.default.get("service.NodeAppService");
+    });
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+    it('Should return an object for readfile', async () => {
+        /*
+        jest.spyOn(fs,"readFile").mockImplementationOnce(()=>{
+            console.log("reading file mocked");
+            return Promise.resolve();
+        });
+        */
+        const res = await nodeAppService.readNodeAppFile("file");
+        console.log(res);
+        expect(res.foo).toBe("bar");
+        expect(1).toBe(1);
+    });
+});

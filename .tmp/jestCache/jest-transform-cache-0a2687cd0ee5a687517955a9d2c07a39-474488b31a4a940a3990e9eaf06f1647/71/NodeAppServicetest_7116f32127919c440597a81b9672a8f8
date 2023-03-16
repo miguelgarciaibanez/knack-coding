@@ -1,0 +1,33 @@
+701775b9cc0703b8f292340b59309392
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+jest.mock('fs', () => ({
+    promises: {
+        writeFile: jest.fn(),
+        readFile: jest.fn()
+    },
+}));
+//import container from "../../../../../../app/dependency-injection";
+const NodeAppService_1 = __importDefault(require("../NodeAppService"));
+describe('Service Test', () => {
+    let nodeAppService;
+    beforeAll(() => {
+        nodeAppService = new NodeAppService_1.default;
+    });
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+    it('Should return an object for readfile', async () => {
+        const res = await nodeAppService.readNodeAppFile("mock_application.json");
+        expect(res._id).toBe("61e8666b010a37023e3d99a3");
+    });
+    it('Should return a unique object', () => {
+        const duplicatedObjectArray = [{ key: "1", value: "value1" }, { key: "1", value: "value2" }];
+        const res = nodeAppService.cleanDuplicageFields(duplicatedObjectArray, "key");
+        console.log(res);
+        expect(1).toBe(1);
+    });
+});

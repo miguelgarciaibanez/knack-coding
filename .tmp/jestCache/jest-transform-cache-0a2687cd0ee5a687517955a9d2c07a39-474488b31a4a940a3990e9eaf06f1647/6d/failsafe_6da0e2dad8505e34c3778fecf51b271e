@@ -1,0 +1,11 @@
+9377bf0834b8195cfad7083470ef286e
+// Standard YAML's Failsafe schema.
+// http://www.yaml.org/spec/1.2/spec.html#id2802346
+
+'use strict';
+
+var Schema = require('../schema');
+module.exports = new Schema({
+  explicit: [require('../type/str'), require('../type/seq'), require('../type/map')]
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJTY2hlbWEiLCJyZXF1aXJlIiwibW9kdWxlIiwiZXhwb3J0cyIsImV4cGxpY2l0Il0sInNvdXJjZXMiOlsiZmFpbHNhZmUuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gU3RhbmRhcmQgWUFNTCdzIEZhaWxzYWZlIHNjaGVtYS5cbi8vIGh0dHA6Ly93d3cueWFtbC5vcmcvc3BlYy8xLjIvc3BlYy5odG1sI2lkMjgwMjM0NlxuXG5cbid1c2Ugc3RyaWN0JztcblxuXG52YXIgU2NoZW1hID0gcmVxdWlyZSgnLi4vc2NoZW1hJyk7XG5cblxubW9kdWxlLmV4cG9ydHMgPSBuZXcgU2NoZW1hKHtcbiAgZXhwbGljaXQ6IFtcbiAgICByZXF1aXJlKCcuLi90eXBlL3N0cicpLFxuICAgIHJlcXVpcmUoJy4uL3R5cGUvc2VxJyksXG4gICAgcmVxdWlyZSgnLi4vdHlwZS9tYXAnKVxuICBdXG59KTtcbiJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTs7QUFHQSxZQUFZOztBQUdaLElBQUlBLE1BQU0sR0FBR0MsT0FBTyxDQUFDLFdBQVcsQ0FBQztBQUdqQ0MsTUFBTSxDQUFDQyxPQUFPLEdBQUcsSUFBSUgsTUFBTSxDQUFDO0VBQzFCSSxRQUFRLEVBQUUsQ0FDUkgsT0FBTyxDQUFDLGFBQWEsQ0FBQyxFQUN0QkEsT0FBTyxDQUFDLGFBQWEsQ0FBQyxFQUN0QkEsT0FBTyxDQUFDLGFBQWEsQ0FBQztBQUUxQixDQUFDLENBQUMifQ==

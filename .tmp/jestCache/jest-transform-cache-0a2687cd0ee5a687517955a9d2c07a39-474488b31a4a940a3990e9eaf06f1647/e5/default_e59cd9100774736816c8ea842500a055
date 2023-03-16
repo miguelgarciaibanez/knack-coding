@@ -1,0 +1,14 @@
+23ae46dcb4db8ef58e18adc0d5d47202
+// JS-YAML's default schema for `safeLoad` function.
+// It is not described in the YAML specification.
+//
+// This schema is based on standard YAML's Core schema and includes most of
+// extra types described at YAML tag repository. (http://yaml.org/type/)
+
+'use strict';
+
+module.exports = require('./core').extend({
+  implicit: [require('../type/timestamp'), require('../type/merge')],
+  explicit: [require('../type/binary'), require('../type/omap'), require('../type/pairs'), require('../type/set')]
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJtb2R1bGUiLCJleHBvcnRzIiwicmVxdWlyZSIsImV4dGVuZCIsImltcGxpY2l0IiwiZXhwbGljaXQiXSwic291cmNlcyI6WyJkZWZhdWx0LmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIEpTLVlBTUwncyBkZWZhdWx0IHNjaGVtYSBmb3IgYHNhZmVMb2FkYCBmdW5jdGlvbi5cbi8vIEl0IGlzIG5vdCBkZXNjcmliZWQgaW4gdGhlIFlBTUwgc3BlY2lmaWNhdGlvbi5cbi8vXG4vLyBUaGlzIHNjaGVtYSBpcyBiYXNlZCBvbiBzdGFuZGFyZCBZQU1MJ3MgQ29yZSBzY2hlbWEgYW5kIGluY2x1ZGVzIG1vc3Qgb2Zcbi8vIGV4dHJhIHR5cGVzIGRlc2NyaWJlZCBhdCBZQU1MIHRhZyByZXBvc2l0b3J5LiAoaHR0cDovL3lhbWwub3JnL3R5cGUvKVxuXG5cbid1c2Ugc3RyaWN0JztcblxuXG5tb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoJy4vY29yZScpLmV4dGVuZCh7XG4gIGltcGxpY2l0OiBbXG4gICAgcmVxdWlyZSgnLi4vdHlwZS90aW1lc3RhbXAnKSxcbiAgICByZXF1aXJlKCcuLi90eXBlL21lcmdlJylcbiAgXSxcbiAgZXhwbGljaXQ6IFtcbiAgICByZXF1aXJlKCcuLi90eXBlL2JpbmFyeScpLFxuICAgIHJlcXVpcmUoJy4uL3R5cGUvb21hcCcpLFxuICAgIHJlcXVpcmUoJy4uL3R5cGUvcGFpcnMnKSxcbiAgICByZXF1aXJlKCcuLi90eXBlL3NldCcpXG4gIF1cbn0pO1xuIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUdBLFlBQVk7O0FBR1pBLE1BQU0sQ0FBQ0MsT0FBTyxHQUFHQyxPQUFPLENBQUMsUUFBUSxDQUFDLENBQUNDLE1BQU0sQ0FBQztFQUN4Q0MsUUFBUSxFQUFFLENBQ1JGLE9BQU8sQ0FBQyxtQkFBbUIsQ0FBQyxFQUM1QkEsT0FBTyxDQUFDLGVBQWUsQ0FBQyxDQUN6QjtFQUNERyxRQUFRLEVBQUUsQ0FDUkgsT0FBTyxDQUFDLGdCQUFnQixDQUFDLEVBQ3pCQSxPQUFPLENBQUMsY0FBYyxDQUFDLEVBQ3ZCQSxPQUFPLENBQUMsZUFBZSxDQUFDLEVBQ3hCQSxPQUFPLENBQUMsYUFBYSxDQUFDO0FBRTFCLENBQUMsQ0FBQyJ9

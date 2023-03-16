@@ -1,9 +1,9 @@
 import container from './dependency-injection';
 
-function cleanJson(){
+async function cleanJson(){
     const nodeAppController = container.get("Controllers.NodeAppController");
-    nodeAppController.cleanNodeApp("test file");
-    console.log("cleaning JSON");
+    const res = await nodeAppController.cleanNodeApp("mock_application.json");
+    console.log(res ? "cleaning JSON success" : "Failed cleaning JSON");
 }
 
 
